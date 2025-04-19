@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/auth-service
+  security:
+    jwt:
+      secret: your-secret-key-here-must-be-at-least-256-bits-long
+      expiration: 86400000 # 24 hours in milliseconds
+
+auth:
+  allowed-domains:
+    - example.com
+    - test.com
+  allowed-roles:
+    - USER
+    - ADMIN
+    - SUPER_ADMIN
+  registration:
+    mandatory-fields:
+      - email
+      - password
+    optional-fields:
+      - name
+      - phone
+      - country
+      - address 
